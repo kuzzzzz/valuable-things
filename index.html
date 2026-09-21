@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10 Valuable Things — Origins of Value</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0c0f14;
+      --surface: #151a22;
+      --surface-2: #1c2330;
+      --border: #2a3344;
+      --text: #e8edf5;
+      --text-muted: #9aa8bc;
+      --accent: #d4a017;
+      --accent-soft: rgba(212, 160, 23, 0.15);
+      --gold: #f0c14b;
+      --blue: #5b9fd4;
+      --green: #4caf7a;
+      --purple: #9b7bde;
+      --rose: #e07a7a;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      padding: 6rem 1.5rem 4rem;
+      text-align: center;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 160, 23, 0.18), transparent),
+        var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #fff 30%, var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      max-width: 640px;
+      margin: 0 auto 2.5rem;
+      color: var(--text-muted);
+      font-size: 1.15rem;
+    }
+
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .nav-pills a {
+      display: inline-block;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .nav-pills a:hover {
+      color: var(--gold);
+      border-color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    /* Main layout */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+    }
+
+    /* Card */
+    .item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+    }
+
+    .item:nth-child(2)::before { background: #c0c0c0; }
+    .item:nth-child(3)::before { background: #3d5a80; }
+    .item:nth-child(4)::before { background: #f7931a; }
+    .item:nth-child(5)::before { background: #8b5a2b; }
+    .item:nth-child(6)::before { background: #9b59b6; }
+    .item:nth-child(7)::before { background: #3498db; }
+    .item:nth-child(8)::before { background: #2ecc71; }
+    .item:nth-child(9)::before { background: #e74c3c; }
+    .item:nth-child(10)::before { background: #1abc9c; }
+
+    .item-header {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .item-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.9;
+    }
+
+    .item h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+    }
+
+    .why {
+      background: var(--surface-2);
+      border-radius: 10px;
+      padding: 1.1rem 1.25rem;
+      margin-bottom: 1.75rem;
+      border-left: 3px solid var(--accent);
+    }
+
+    .why h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .why p {
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    /* Timeline */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--accent), var(--border));
+      border-radius: 2px;
+    }
+
+    .timeline h3 {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      margin-left: -1.5rem;
+    }
+
+    .tl-item {
+      position: relative;
+      padding-bottom: 1.25rem;
+      padding-left: 1.25rem;
+    }
+
+    .tl-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 0.45rem;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+      z-index: 1;
+    }
+
+    .tl-year {
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--gold);
+      margin-bottom: 0.15rem;
+    }
+
+    .tl-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .hero {
+        padding: 4rem 1rem 3rem;
+      }
+      .item {
+        padding: 1.5rem;
+      }
+      .item h2 {
+        font-size: 1.45rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <h1>10 Valuable Things</h1>
+    <p>Why they matter and how their value was created over time — from ancient scarcity to modern markets.</p>
+    <nav class="nav-pills" aria-label="Jump to item">
+      <a href="#gold">Gold</a>
+      <a href="#diamonds">Diamonds</a>
+      <a href="#oil">Oil</a>
+      <a href="#bitcoin">Bitcoin</a>
+      <a href="#spices">Spices</a>
+      <a href="#art">Fine Art</a>
+      <a href="#water">Fresh Water</a>
+      <a href="#knowledge">Knowledge</a>
+      <a href="#land">Land</a>
+      <a href="#chips">Semiconductors</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- 1. Gold -->
+    <article class="item" id="gold">
+      <div class="item-header">
+        <span class="item-number">01</span>
+        <h2>Gold</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Gold is scarce, durable, divisible, portable, and universally recognized. It does not corrode, cannot be printed, and has served as money and a store of value for more than 5,000 years. Its value comes from trust in its physical properties rather than any government’s promise.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">c. 4500 BCE</div>
+          <div class="tl-desc">Earliest worked gold found in the Varna necropolis (Bulgaria). Already treated as a prestige material.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">c. 2500 BCE</div>
+          <div class="tl-desc">Egyptian and Nubian mining at scale. Gold becomes the metal of gods, kings, and tombs.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">c. 550 BCE</div>
+          <div class="tl-desc">King Croesus of Lydia issues the first standardized pure gold coins — the birth of gold as formal money.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1816–1873</div>
+          <div class="tl-desc">Britain and then much of the world adopt the classical gold standard. Gold underpins global trade and currencies.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1933–1971</div>
+          <div class="tl-desc">U.S. revalues gold to $35/oz and locks private ownership; Bretton Woods pegs the dollar to gold.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1971 – present</div>
+          <div class="tl-desc">Nixon ends dollar convertibility. Gold becomes a free-floating asset and modern hedge against inflation and geopolitical risk. Prices later reach multi-thousand-dollar highs.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2. Diamonds -->
+    <article class="item" id="diamonds">
+      <div class="item-header">
+        <span class="item-number">02</span>
+        <h2>Diamonds</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Natural diamonds are hard, beautiful, and relatively scarce in gem quality. Much of their modern price, however, was deliberately engineered: a cartel controlled supply while a brilliant marketing campaign linked diamonds to eternal love and social status, turning a commodity into an emotional necessity.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">Ancient India</div>
+          <div class="tl-desc">Diamonds known and prized for centuries, mainly among royalty and the wealthy.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1860s–1888</div>
+          <div class="tl-desc">Massive diamond discoveries in South Africa. Cecil Rhodes consolidates mines into De Beers, which eventually controls ~90% of global supply and creates artificial scarcity.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1938–1948</div>
+          <div class="tl-desc">De Beers hires N.W. Ayer. The agency invents the modern diamond engagement ring tradition and launches the slogan “A Diamond Is Forever.”</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1940s–1980s</div>
+          <div class="tl-desc">Aggressive U.S. and later global campaigns make diamond rings a social norm. U.S. wholesale diamond sales explode from tens of millions to billions of dollars.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2000s–present</div>
+          <div class="tl-desc">Lab-grown diamonds and new mine sources challenge the old monopoly, yet natural diamonds retain strong emotional and investment value for many buyers.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3. Oil -->
+    <article class="item" id="oil">
+      <div class="item-header">
+        <span class="item-number">03</span>
+        <h2>Crude Oil</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Oil is the densest widely available energy source that powered the 20th century. It fuels transport, industry, plastics, fertilizers, and chemicals. Control of oil has shaped geopolitics, wars, and national wealth for more than a century.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">Ancient times</div>
+          <div class="tl-desc">Bitumen and surface oil used for waterproofing, medicine, and construction in Mesopotamia and elsewhere.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1859</div>
+          <div class="tl-desc">Edwin Drake drills the first commercial oil well in Titusville, Pennsylvania. The modern petroleum industry is born.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1885–1920s</div>
+          <div class="tl-desc">Internal-combustion engines and mass automobile production turn gasoline from a waste product into the primary driver of demand.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1938–1960</div>
+          <div class="tl-desc">Major Middle Eastern discoveries (Saudi Arabia etc.). OPEC is founded in 1960 as producers begin asserting control over prices.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1973–1979</div>
+          <div class="tl-desc">Oil embargos and the Iranian Revolution trigger price shocks that reshape the global economy and energy policy.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2000s–present</div>
+          <div class="tl-desc">Shale revolution, OPEC+, energy transition debates. Oil remains central to transport and petrochemicals even as renewables grow.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4. Bitcoin -->
+    <article class="item" id="bitcoin">
+      <div class="item-header">
+        <span class="item-number">04</span>
+        <h2>Bitcoin</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Bitcoin is the first successful digital scarcity. Its fixed supply of 21 million coins, decentralized issuance, and resistance to censorship create a form of “digital gold.” Value arises from network effects, scarcity, and growing institutional and sovereign demand.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">2008</div>
+          <div class="tl-desc">Satoshi Nakamoto publishes the Bitcoin white paper describing peer-to-peer electronic cash without trusted intermediaries.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2009</div>
+          <div class="tl-desc">Genesis block mined. First known price: fractions of a cent. Network is tiny and experimental.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2010–2013</div>
+          <div class="tl-desc">Pizza Day (10,000 BTC for two pizzas). First major bull run takes Bitcoin past $1,000 amid growing media attention.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2017 & 2021</div>
+          <div class="tl-desc">Retail and later institutional waves push prices to successive all-time highs (~$20k then ~$69k). ETFs and corporate treasuries begin to appear.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2024–2025</div>
+          <div class="tl-desc">U.S. spot Bitcoin ETFs approved. Fourth halving reduces new supply. Price reaches new highs above $100,000 as adoption deepens.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 5. Spices -->
+    <article class="item" id="spices">
+      <div class="item-header">
+        <span class="item-number">05</span>
+        <h2>Spices (esp. Pepper, Cloves, Cinnamon)</h2>
+      </div>
+      <div class="why">
+        <h3>Why they were (and sometimes still are) valuable</h3>
+        <p>In the pre-modern world, spices preserved food, flavored bland diets, served as medicine, and signaled extreme wealth. Their value was driven by enormous transport costs, multiple middlemen, and deliberate scarcity. At times a pound of pepper cost more than a skilled craftsman’s several days’ wages; some spices approached the price of gold by weight.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">Ancient–Medieval</div>
+          <div class="tl-desc">Arab, Indian, and Chinese traders move spices across the Indian Ocean and Silk Road. Alexandria and later Venice become European gateways.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">12th–15th centuries</div>
+          <div class="tl-desc">European demand surges after the Crusades. Spices become the most profitable long-distance trade goods. Venice dominates the European end of the trade.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1498–1600s</div>
+          <div class="tl-desc">Portuguese and then Dutch break the Arab–Venetian monopoly by sailing around Africa. The Dutch East India Company builds a near-monopoly on cloves and nutmeg.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">18th–19th centuries</div>
+          <div class="tl-desc">Cultivation spreads, transport improves, and prices collapse. Spices become everyday commodities rather than luxury treasures.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Today</div>
+          <div class="tl-desc">Most spices are inexpensive, but high-quality saffron, vanilla, and certain single-origin peppers still command premium prices.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 6. Fine Art -->
+    <article class="item" id="art">
+      <div class="item-header">
+        <span class="item-number">06</span>
+        <h2>Fine Art</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Art combines scarcity (unique or limited works), cultural prestige, historical importance, and, increasingly, investment demand. Value is created by reputation of the artist, provenance, exhibition history, critical consensus, and the wealth of collectors competing for status and returns.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">Middle Ages – Renaissance</div>
+          <div class="tl-desc">Value tied mainly to costly materials (gold leaf, lapis lazuli) and the patron’s status. Artists work under commission.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">17th–19th centuries</div>
+          <div class="tl-desc">Art market develops in the Netherlands and later Britain and France. Old Masters gain enduring reputations; auctions become important.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Late 19th – mid-20th century</div>
+          <div class="tl-desc">Impressionists and modernists move from rejection to high prices. Artists themselves become brands.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1980s–present</div>
+          <div class="tl-desc">Contemporary art explodes as a global asset class. Record auction prices, wealth concentration, and financialization turn top works into portable stores of value and status symbols.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 7. Fresh Water -->
+    <article class="item" id="water">
+      <div class="item-header">
+        <span class="item-number">07</span>
+        <h2>Fresh Water</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Water is essential for life, agriculture, industry, and energy. While abundant on Earth overall, clean, accessible freshwater is scarce in many regions. Climate change, population growth, and pollution are increasing its economic and strategic value.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">Ancient civilizations</div>
+          <div class="tl-desc">Settlements cluster around reliable rivers and springs. Control of water equals power (Egypt, Mesopotamia, Indus Valley).</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Industrial era</div>
+          <div class="tl-desc">Large-scale irrigation, dams, and municipal water systems turn water into an engineered utility, often treated as nearly free.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Late 20th century</div>
+          <div class="tl-desc">Growing recognition of scarcity, pollution, and aquifer depletion. Water markets and pricing reforms appear in some countries.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">21st century</div>
+          <div class="tl-desc">Climate stress, urbanization, and industrial demand push water higher on economic and geopolitical agendas. Desalination and efficiency technologies gain importance.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 8. Knowledge -->
+    <article class="item" id="knowledge">
+      <div class="item-header">
+        <span class="item-number">08</span>
+        <h2>Knowledge & Education</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Knowledge compounds. It raises productivity, enables better decisions, and creates new technologies and institutions. Unlike most physical goods, it can be shared without being depleted, yet high-quality, scarce expertise still commands premium prices in labor markets and innovation.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">Ancient world</div>
+          <div class="tl-desc">Libraries (Alexandria), philosophical schools, and scribal training concentrate knowledge among elites.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">15th century</div>
+          <div class="tl-desc">Printing press dramatically lowers the cost of reproducing knowledge and accelerates the Renaissance and Scientific Revolution.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">19th–20th centuries</div>
+          <div class="tl-desc">Mass public education and research universities turn human capital into a central driver of economic growth.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1990s–present</div>
+          <div class="tl-desc">Internet and digital tools make vast amounts of information free, while specialized skills, data, and AI training become the new scarce and highly paid forms of knowledge.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 9. Land -->
+    <article class="item" id="land">
+      <div class="item-header">
+        <span class="item-number">09</span>
+        <h2>Land & Real Estate</h2>
+      </div>
+      <div class="why">
+        <h3>Why it is valuable</h3>
+        <p>Land is finite. Location, legal rights, and improvements (buildings, infrastructure) create value. In growing cities and productive agricultural regions, land has been one of the most reliable long-term stores of wealth across cultures and centuries.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">Agricultural revolution</div>
+          <div class="tl-desc">Settled farming makes control of fertile land the foundation of wealth and power.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Feudal & early modern eras</div>
+          <div class="tl-desc">Land ownership defines social hierarchy. Enclosure movements and colonial land grants concentrate property rights.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">19th–20th centuries</div>
+          <div class="tl-desc">Urbanization and industrialization make city land extremely valuable. Homeownership becomes a major middle-class wealth vehicle in many countries.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">Present</div>
+          <div class="tl-desc">Location still dominates: coastal, transit-rich, and high-amenity cities command large premiums. Zoning, climate risk, and remote work continue to reshape relative values.</div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 10. Semiconductors -->
+    <article class="item" id="chips">
+      <div class="item-header">
+        <span class="item-number">10</span>
+        <h2>Semiconductors (Silicon Chips)</h2>
+      </div>
+      <div class="why">
+        <h3>Why they are valuable</h3>
+        <p>Modern semiconductors are the physical substrate of computing, communications, AI, and almost every electronic device. Extreme technical complexity, enormous capital costs, and geopolitical concentration make advanced chips both economically critical and strategically scarce.</p>
+      </div>
+      <div class="timeline">
+        <h3>Timeline of value</h3>
+        <div class="tl-item">
+          <div class="tl-year">1947–1950s</div>
+          <div class="tl-desc">Invention of the transistor (Bell Labs) and the integrated circuit. Electronics begin shrinking and becoming reliable.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1960s–1980s</div>
+          <div class="tl-desc">Moore’s Law takes hold. Silicon Valley and later East Asian foundries turn chips into a mass industry powering personal computers and consumer electronics.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">1990s–2010s</div>
+          <div class="tl-desc">Mobile phones, internet infrastructure, and data centers create enormous demand. Leading-edge fabrication becomes extraordinarily expensive.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2020s</div>
+          <div class="tl-desc">AI boom, export controls, and national industrial policies elevate advanced semiconductors to the level of strategic national assets. Value is measured in both market price and geopolitical leverage.</div>
+        </div>
+      </div>
+    </article>
+  </main>
+
+  <footer>
+    <p>A single-page exploration of how scarcity, utility, trust, marketing, and history create lasting value.</p>
+    <p style="margin-top:0.5rem; font-size:0.8rem;">Created as a static site — open <code>index.html</code> in any browser.</p>
+  </footer>
+</body>
+</html>
